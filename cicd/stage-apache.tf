@@ -39,7 +39,7 @@ resource "aws_instance" "apache" {
   key_name = aws_key_pair.demo.id
 
   tags = {
-    Name = "apache"
+    Name = "stage-apache"
   }
 }
 

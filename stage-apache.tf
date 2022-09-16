@@ -1,5 +1,5 @@
-resource "aws_security_group" "apache-sg" {
-  name        = "apache-sg"
+resource "aws_security_group" "stage-apache-sg" {
+  name        = "stage-apache-sg"
   description = "Admin with ssh"
   vpc_id      = "vpc-049f215e85a9ff2c2"
 
@@ -28,7 +28,7 @@ resource "aws_security_group" "apache-sg" {
   }
 
   tags = {
-    Name = "apache-sg"
+    Name = "stage-apache-sg"
   }
 }
 

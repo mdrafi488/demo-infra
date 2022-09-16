@@ -1,5 +1,5 @@
-resource "aws_security_group" "cicd-sg" {
-  name        = "cicd-sg"
+resource "aws_security_group" "stage-cicd-sg" {
+  name        = "stage-cicd-sg"
   description = "Admin with ssh"
   vpc_id      = "vpc-049f215e85a9ff2c2"
 
@@ -27,7 +27,7 @@ resource "aws_security_group" "cicd-sg" {
   }
 
   tags = {
-    Name = "cicd-sg"
+    Name = "stage-cicd-sg"
   }
 }
 

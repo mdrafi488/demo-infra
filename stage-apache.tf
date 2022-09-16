@@ -32,7 +32,7 @@ resource "aws_security_group" "apache-sg" {
   }
 }
 
-resource "aws_instance" "apache" {
+/* resource "aws_instance" "apache" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
   vpc_security_group_ids=[aws_security_group.apache-sg.id]
@@ -42,5 +42,6 @@ resource "aws_instance" "apache" {
   tags = {
     Name = "stage-apache"
   }
-}
+} */
+
 

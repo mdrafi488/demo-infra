@@ -4,14 +4,14 @@ resource "aws_security_group" "cicd-sg" {
   vpc_id      = "vpc-049f215e85a9ff2c2"
 
   ingress {
-    dscription      = " admin from ssh "
+    description      = " admin from ssh "
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
   ingress {
-    dscription      = " Enduser from http "
+    description      = " Enduser from http "
     from_port        = 80
     to_port          = 80
     protocol         = "tcp"

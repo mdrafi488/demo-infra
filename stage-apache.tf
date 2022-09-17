@@ -35,7 +35,7 @@ resource "aws_security_group" "stage-apache-sg" {
  resource "aws_instance" "apache" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  vpc_security_group_ids=[aws_security_group.apache-sg.id]
+  vpc_security_group_ids=[aws_security_group.stage-apache-sg.id]
   subnet_id = "subnet-072762878afe76c41"
   key_name = aws_key_pair.demo.id
 

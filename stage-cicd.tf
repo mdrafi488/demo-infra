@@ -34,7 +34,7 @@ resource "aws_security_group" "stage-cicd-sg" {
 resource "aws_instance" "cicd" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  vpc_security_group_ids=[aws_security_group.cicd-sg.id]
+  vpc_security_group_ids=[aws_security_group.stage-cicd-sg.id]
   subnet_id = "subnet-072762878afe76c41"
   key_name = aws_key_pair.demo.id
 

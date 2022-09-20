@@ -39,6 +39,14 @@ resource "aws_security_group" "stage-apache-sg" {
   subnet_id = "subnet-072762878afe76c41"
   key_name = aws_key_pair.demo2.id
 
+  user_data              = <<-EOF
+              #!/bin/bash
+              yum update -y
+              yum install httpd -y
+              systemctl start httpd 
+              systemctl enable httpd
+              EOF
+
   tags = {
     Name = "stage-apache"
   }

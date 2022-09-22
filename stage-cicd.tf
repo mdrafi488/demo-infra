@@ -1,5 +1,5 @@
-resource "aws_security_group" "stage-cicd-sg" {
-  name        = "stage-cicd-sg"
+resource "aws_security_group" "stage-cicd-sg1" {
+  name        = "stage-cicd-sg1"
   description = "Admin with ssh"
   vpc_id      = "vpc-049f215e85a9ff2c2"
 
@@ -27,16 +27,16 @@ resource "aws_security_group" "stage-cicd-sg" {
   }
 
   tags = {
-    Name = "stage-cicd-sg"
+    Name = "stage-cicd-sg1"
   }
 }
 
-resource "aws_instance" "cicd" {
+resource "aws_instance" "cicd1" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  vpc_security_group_ids=[aws_security_group.stage-cicd-sg.id]
+  vpc_security_group_ids=[aws_security_group.stage-cicd-sg1.id]
   subnet_id = "subnet-072762878afe76c41"
-  key_name = aws_key_pair.demo2.id
+  key_name = aws_key_pair.demo3.id
 
   user_data              = <<-EOF
 wget -O /etc/yum.repos.d/jenkins.repo \
@@ -50,7 +50,7 @@ systemctl enable jenkins
               EOF
 
   tags = {
-    Name = "stage-cicd"
+    Name = "stage-cicd1"
   }
 } 
 

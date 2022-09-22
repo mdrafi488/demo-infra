@@ -1,5 +1,5 @@
-resource "aws_security_group" "stage-apache-sg" {
-  name        = "stage-apache-sg"
+resource "aws_security_group" "stage-apache-sg1" {
+  name        = "stage-apache-sg1"
   description = "Admin with ssh"
   vpc_id      = "vpc-049f215e85a9ff2c2"
 
@@ -28,16 +28,16 @@ resource "aws_security_group" "stage-apache-sg" {
   }
 
   tags = {
-    Name = "stage-apache-sg"
+    Name = "stage-apache-sg1"
   }
 }
 
- resource "aws_instance" "apache" {
+ resource "aws_instance" "apache1" {
   ami           = "ami-0b89f7b3f054b957e"
   instance_type = "t2.micro"
-  vpc_security_group_ids=[aws_security_group.stage-apache-sg.id]
+  vpc_security_group_ids=[aws_security_group.stage-apache-sg1.id]
   subnet_id = "subnet-072762878afe76c41"
-  key_name = aws_key_pair.demo2.id
+  key_name = aws_key_pair.demo3.id
 
   user_data              = <<-EOF
               #!/bin/bash
@@ -48,7 +48,7 @@ resource "aws_security_group" "stage-apache-sg" {
               EOF
 
   tags = {
-    Name = "stage-apache"
+    Name = "stage1-apache"
   }
 } 
 
